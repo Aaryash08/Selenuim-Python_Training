@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.0 on win32)" generated="2026-01-29T18:20:20.753201" rpa="false" schemaversion="5">
+<suite id="s1" name="Q2" source="C:\Users\KIIT\OneDrive\Desktop\Wipro NGA\Labs\Day12\Q2.robot">
+<test id="s1-t1" name="Verify Automation Environment Setup" line="8">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>===== Environment Verification Started =====</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.084812" elapsed="0.000000"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2026-01-29T18:20:21.087306" level="INFO">Starting process:
+python --version</msg>
+<msg time="2026-01-29T18:20:21.095963" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-01-29T18:20:21.105433" level="INFO">Process completed.</msg>
+<msg time="2026-01-29T18:20:21.105433" level="INFO">${python} = &lt;result object with rc 0&gt;</msg>
+<var>${python}</var>
+<arg>python</arg>
+<arg>--version</arg>
+<arg>stdout=YES</arg>
+<arg>stderr=YES</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.084812" elapsed="0.020621"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${python.rc} != 0</arg>
+<arg>Fail</arg>
+<arg>Python is not installed</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.106438" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Python Installed: ${python.stdout}${python.stderr}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.106438" elapsed="0.002771"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2026-01-29T18:20:21.110498" level="INFO">Starting process:
+robot --version</msg>
+<msg time="2026-01-29T18:20:21.115886" level="INFO">Waiting for process to complete.</msg>
+<msg time="2026-01-29T18:20:21.548806" level="INFO">Process completed.</msg>
+<msg time="2026-01-29T18:20:21.548806" level="INFO">${robot} = &lt;result object with rc 251&gt;</msg>
+<var>${robot}</var>
+<arg>robot</arg>
+<arg>--version</arg>
+<arg>stdout=YES</arg>
+<arg>stderr=YES</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.109209" elapsed="0.440103"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${robot.stdout}${robot.stderr}' == ''</arg>
+<arg>Fail</arg>
+<arg>Robot Framework is not installed</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.549312" elapsed="0.002028"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Robot Framework Version: ${robot.stdout}${robot.stderr}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.552348" elapsed="0.001288"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>SeleniumLibrary imported successfully</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.553636" elapsed="0.001023"/>
+</kw>
+<arg>Log To Console</arg>
+<arg>SeleniumLibrary imported successfully</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.553636" elapsed="0.001023"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>===== Environment Verification Completed =====</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-29T18:20:21.554659" elapsed="0.000000"/>
+</kw>
+<doc>Verify Python, Robot Framework, SeleniumLibrary and log versions</doc>
+<status status="PASS" start="2026-01-29T18:20:21.083441" elapsed="0.471218"/>
+</test>
+<status status="PASS" start="2026-01-29T18:20:20.755414" elapsed="0.800339"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Q2" id="s1" pass="1" fail="0" skip="0">Q2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

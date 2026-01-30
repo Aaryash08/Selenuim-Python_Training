@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.0 on win32)" generated="2026-01-30T16:53:42.128614" rpa="false" schemaversion="5">
+<suite id="s1" name="TC006 DDExcel" source="C:\Users\KIIT\OneDrive\Desktop\Wipro NGA\Day13\RobotFw\TC006_DDExcel.robot">
+<test id="s1-t1" name="TC006_DDExcel_Login" line="33">
+<kw name="OrangeHRM Login With Excel">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-30T16:53:43.246551" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-30T16:53:43.246551" elapsed="5.197196"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-01-30T16:53:48.443747" elapsed="0.033497"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T16:53:53.477547" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T16:53:48.477244" elapsed="5.000303"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T16:53:53.478584" level="INFO">Typing text 'Admin' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T16:53:53.477547" elapsed="0.072920"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T16:53:53.550467" level="INFO">Typing text 'admin123' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T16:53:53.550467" elapsed="0.067083"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T16:53:59.618617" level="INFO">Slept 6 seconds.</msg>
+<arg>6s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T16:53:53.617550" elapsed="6.001067"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-01-30T16:53:59.709357" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="beforelogin6.png"&gt;&lt;img src="beforelogin6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>beforelogin6.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-01-30T16:53:59.618617" elapsed="0.090740"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T16:53:59.709357" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T16:53:59.709357" elapsed="0.063229"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T16:54:05.773652" level="INFO">Slept 6 seconds.</msg>
+<arg>6s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T16:53:59.773585" elapsed="6.000067"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-01-30T16:54:05.910382" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="afterlogin6.png"&gt;&lt;img src="afterlogin6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>afterlogin6.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-01-30T16:54:05.773652" elapsed="0.136730"/>
+</kw>
+<kw name="Click Image" owner="SeleniumLibrary">
+<msg time="2026-01-30T16:54:05.911396" level="INFO">Clicking image 'xpath=//*[@id="app"]/div[1]/div[1]/header/div[1]/div[3]/ul/li/span/img'.</msg>
+<arg>xpath=//*[@id="app"]/div[1]/div[1]/header/div[1]/div[3]/ul/li/span/img</arg>
+<doc>Clicks an image identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T16:54:05.910382" elapsed="0.055327"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T16:54:11.967013" level="INFO">Slept 6 seconds.</msg>
+<arg>6s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T16:54:05.965709" elapsed="6.001304"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T16:54:11.967013" level="INFO">Clicking link 'Logout'.</msg>
+<arg>Logout</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T16:54:11.967013" elapsed="1.293482"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-01-30T16:54:13.370483" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="afterlogOut6.png"&gt;&lt;img src="afterlogOut6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>afterlogOut6.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-01-30T16:54:13.260495" elapsed="0.109988"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-30T16:54:13.371936" elapsed="2.212782"/>
+</kw>
+<arg>username=Admin</arg>
+<arg>password=admin123</arg>
+<status status="PASS" start="2026-01-30T16:53:43.245031" elapsed="32.339687"/>
+</kw>
+<status status="PASS" start="2026-01-30T16:53:43.244009" elapsed="32.340709"/>
+</test>
+<status status="PASS" start="2026-01-30T16:53:42.130640" elapsed="33.455514"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="TC006 DDExcel" id="s1" pass="1" fail="0" skip="0">TC006 DDExcel</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

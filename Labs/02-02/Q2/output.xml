@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.0 on win32)" generated="2026-02-02T17:48:41.723936" rpa="false" schemaversion="5">
+<suite id="s1" name="Q2" source="C:\Users\KIIT\OneDrive\Desktop\Wipro_NGA\Labs\Day14\Q2\Q2.robot">
+<test id="s1-t1" name="Verify Form Interaction And Logic" line="13">
+<kw name="Open Browser To Form">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:48:42.021869" level="INFO">Opening browser 'Chrome' to base url 'file:///C:/Users/KIIT/OneDrive/Desktop/Wipro_NGA/Labs/Day14/Q2/demo.html'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-02T17:48:42.021869" elapsed="1.612680"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-02T17:48:43.636566" elapsed="0.049237"/>
+</kw>
+<status status="PASS" start="2026-02-02T17:48:42.020865" elapsed="1.664938"/>
+</kw>
+<kw name="Fill Text Fields">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:48:43.688819" level="INFO">Typing text 'JohnDoe' into text field 'id:username-box'.</msg>
+<arg>id:username-box</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T17:48:43.687814" elapsed="0.290614"/>
+</kw>
+<arg>${USERNAME}</arg>
+<status status="PASS" start="2026-02-02T17:48:43.686809" elapsed="0.291619"/>
+</kw>
+<kw name="Select Radio Button Option">
+<kw name="Select Radio Button" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:48:43.980868" level="INFO">Selecting 'male' from radio button 'gender'.</msg>
+<arg>gender</arg>
+<arg>male</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" start="2026-02-02T17:48:43.979467" elapsed="0.138876"/>
+</kw>
+<status status="PASS" start="2026-02-02T17:48:43.979467" elapsed="0.138876"/>
+</kw>
+<kw name="Handle Checkbox">
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:48:44.119337" level="INFO">Selecting checkbox 'id:subscribe-checkbox'.</msg>
+<arg>${NEWSLETTER}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T17:48:44.119337" elapsed="0.114043"/>
+</kw>
+<status status="PASS" start="2026-02-02T17:48:44.119337" elapsed="0.114043"/>
+</kw>
+<kw name="Select From Dropdown Menu">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:48:44.234380" level="INFO">Selecting options from selection list 'id:country-select' by label United States.</msg>
+<arg>${COUNTRY_DROPDOWN}</arg>
+<arg>United States</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-02-02T17:48:44.233380" elapsed="0.085111"/>
+</kw>
+<status status="PASS" start="2026-02-02T17:48:44.233380" elapsed="0.085111"/>
+</kw>
+<kw name="Check Condition And Log Results">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:48:44.341339" level="INFO">${status} = Ready</msg>
+<var>${status}</var>
+<arg>id:status-message</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-02T17:48:44.319489" elapsed="0.021850"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Form submission pending or failed.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-02-02T17:48:44.342351" elapsed="0.000000"/>
+</kw>
+<arg>'${status}' == 'Success'</arg>
+<arg>Log To Console</arg>
+<arg>Form submitted successfully!</arg>
+<arg>ELSE</arg>
+<arg>Log To Console</arg>
+<arg>Form submission pending or failed.</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2026-02-02T17:48:44.341339" elapsed="0.001012"/>
+</kw>
+<status status="PASS" start="2026-02-02T17:48:44.319489" elapsed="0.022862"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-02-02T17:48:44.441157" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-02-02T17:48:44.343387" elapsed="0.097770"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-02T17:48:44.442227" elapsed="2.265185"/>
+</kw>
+<doc>Test case to interact with web elements and use conditional logic.</doc>
+<status status="PASS" start="2026-02-02T17:48:42.019789" elapsed="4.687623"/>
+</test>
+<status status="PASS" start="2026-02-02T17:48:41.725936" elapsed="4.982989"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Q2" id="s1" pass="1" fail="0" skip="0">Q2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

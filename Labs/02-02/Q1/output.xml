@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.0 on win32)" generated="2026-02-02T17:32:19.793629" rpa="false" schemaversion="5">
+<suite id="s1" name="Q1" source="C:\Users\KIIT\OneDrive\Desktop\Wipro_NGA\Labs\Day14\Q1.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-02-02T17:32:19.827357" level="INFO">Preparing the entire test suite environment...</msg>
+<arg>Preparing the entire test suite environment...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.827357" elapsed="0.000000"/>
+</kw>
+<test id="s1-t1" name="Login To Portal" line="9">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-02-02T17:32:19.828359" level="INFO">Starting an individual test case.</msg>
+<arg>Starting an individual test case.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.827357" elapsed="0.001002"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-02T17:32:19.828359" level="INFO">Executing login logic...</msg>
+<arg>Executing login logic...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.828359" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${True}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.828359" elapsed="0.001000"/>
+</kw>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-02-02T17:32:19.829359" level="INFO">Finished an individual test case.</msg>
+<arg>Finished an individual test case.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.829359" elapsed="0.000000"/>
+</kw>
+<tag>Regression</tag>
+<tag>Smoke</tag>
+<status status="PASS" start="2026-02-02T17:32:19.827357" elapsed="0.002002"/>
+</test>
+<test id="s1-t2" name="Check User Profile" line="14">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2026-02-02T17:32:19.830864" level="INFO">Starting an individual test case.</msg>
+<arg>Starting an individual test case.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.830864" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-02T17:32:19.830864" level="INFO">Checking profile details...</msg>
+<arg>Checking profile details...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.830864" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>1</arg>
+<arg>1</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.830864" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-02-02T17:32:19.830864" level="INFO">Finished an individual test case.</msg>
+<arg>Finished an individual test case.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.830864" elapsed="0.000000"/>
+</kw>
+<tag>Regression</tag>
+<status status="PASS" start="2026-02-02T17:32:19.830359" elapsed="0.000505"/>
+</test>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2026-02-02T17:32:19.833308" level="INFO">Cleaning up the entire suite environment...</msg>
+<arg>Cleaning up the entire suite environment...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.833308" elapsed="0.000000"/>
+</kw>
+<doc>Example suite for Setup/Teardown and Tagging.</doc>
+<status status="PASS" start="2026-02-02T17:32:19.794654" elapsed="0.038654"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">Regression</stat>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat name="Q1" id="s1" pass="2" fail="0" skip="0">Q1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

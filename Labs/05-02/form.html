@@ -1,0 +1,23 @@
+<form action="/submit-form" method="POST">
+  <fieldset>
+    <legend>Contact Information</legend>
+
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname" placeholder="Jane" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="jane@example.com" required><br><br>
+
+    <label for="subject">Reason for Contact:</label><br>
+    <select id="subject" name="subject">
+      <option value="support">Technical Support</option>
+      <option value="sales">Sales Inquiry</option>
+      <option value="feedback">General Feedback</option>
+    </select><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="4" cols="30"></textarea><br><br>
+
+    <button type="submit">Send Message</button>
+  </fieldset>
+</form>

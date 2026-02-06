@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Form & Alerts</title>
+</head>
+<body>
+
+    <h2>Question 6: Alert Handling</h2>
+    <button id="btnAlert" onclick="alert('This is a simple alert!')">Click for JS Alert</button>
+    <button id="btnConfirm" onclick="confirmAction()">Click for JS Confirm</button>
+    <button id="btnPrompt" onclick="promptAction()">Click for JS Prompt</button>
+
+    <p>Result: <span id="result">Waiting for action...</span></p>
+
+    <hr>
+
+    <form id="contactForm" onsubmit="return validateForm()">
+      <fieldset>
+        <legend>Contact Information</legend>
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="Jane" required><br><br>
+        <button type="submit">Send Message</button>
+      </fieldset>
+    </form>
+
+    <script>
+        function confirmAction() {
+            let res = confirm("Do you want to proceed?");
+            document.getElementById('result').innerText = res ? "You pressed OK" : "You pressed Cancel";
+        }
+
+        function promptAction() {
+            let val = prompt("Please enter your message:");
+            document.getElementById('result').innerText = val ? "You entered: " + val : "No input provided";
+        }
+
+        function validateForm() {
+            const name = document.getElementById('fname').value;
+            alert("Hello " + name + "! Form submitted.");
+            return false; // Prevent actual page reload for this lab
+        }
+    </script>
+</body>
+</html>

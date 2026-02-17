@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.0 on win32)" generated="20260211 18:40:40.224" rpa="false" schemaversion="4">
+<suite id="s1" name="Api Tests" source="C:\Users\KIIT\OneDrive\Desktop\Wipro_NGA\Labs\Practice_project\api_tests.robot">
+<kw name="Create Session" library="RequestsLibrary" type="SETUP">
+<arg>foodie</arg>
+<arg>http://localhost:5000/api/v1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20260211 18:40:40.382" level="INFO">Creating Session using : alias=foodie, url=http://localhost:5000/api/v1, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20260211 18:40:40.382" endtime="20260211 18:40:40.383"/>
+</kw>
+<test id="s1-t1" name="Register New Restaurant Successfully" line="10">
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>foodie</arg>
+<arg>/restaurants</arg>
+<arg>json=${RESTAURANT_DATA}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20260211 18:40:42.425" level="INFO">POST Request : url=http://localhost:5000/api/v1/restaurants 
+ path_url=/api/v1/restaurants 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '101', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Spice Garden", "category": "Indian", "location": "North", "images": [], "contact": "98765"}' 
+ </msg>
+<msg timestamp="20260211 18:40:42.425" level="INFO">POST Response : url=http://localhost:5000/api/v1/restaurants 
+ status=201, reason=CREATED 
+ headers={'Server': 'Werkzeug/3.0.1 Python/3.11.0', 'Date': 'Wed, 11 Feb 2026 13:10:42 GMT', 'Content-Type': 'application/json', 'Content-Length': '165', 'Connection': 'close'} 
+ body={
+  "approved": false,
+  "category": "Indian",
+  "contact": "98765",
+  "enabled": true,
+  "id": 4,
+  "images": [],
+  "location": "North",
+  "name": "Spice Garden"
+}
+ 
+ </msg>
+<msg timestamp="20260211 18:40:42.425" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20260211 18:40:40.383" endtime="20260211 18:40:42.425"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>201</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20260211 18:40:42.426" endtime="20260211 18:40:42.426"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${json}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20260211 18:40:42.428" level="INFO">${json} = {'approved': False, 'category': 'Indian', 'contact': '98765', 'enabled': True, 'id': 4, 'images': [], 'location': 'North', 'name': 'Spice Garden'}</msg>
+<status status="PASS" starttime="20260211 18:40:42.426" endtime="20260211 18:40:42.428"/>
+</kw>
+<kw name="Dictionary Should Contain Key" library="Collections">
+<arg>${json}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" starttime="20260211 18:40:42.428" endtime="20260211 18:40:42.428"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${NEW_RES_ID}</arg>
+<arg>${json['id']}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20260211 18:40:42.429" level="INFO">${NEW_RES_ID} = 4</msg>
+<status status="PASS" starttime="20260211 18:40:42.429" endtime="20260211 18:40:42.429"/>
+</kw>
+<doc>Verify admin can register a restaurant</doc>
+<status status="PASS" starttime="20260211 18:40:40.383" endtime="20260211 18:40:42.430"/>
+</test>
+<test id="s1-t2" name="Approve Restaurant Via Admin" line="18">
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>foodie</arg>
+<arg>/admin/restaurants/${NEW_RES_ID}/approve</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20260211 18:40:44.471" level="INFO">PUT Request : url=http://localhost:5000/api/v1/admin/restaurants/4/approve 
+ path_url=/api/v1/admin/restaurants/4/approve 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20260211 18:40:44.471" level="INFO">PUT Response : url=http://localhost:5000/api/v1/admin/restaurants/4/approve 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.0.1 Python/3.11.0', 'Date': 'Wed, 11 Feb 2026 13:10:44 GMT', 'Content-Type': 'application/json', 'Content-Length': '39', 'Connection': 'close'} 
+ body={
+  "message": "Restaurant approved"
+}
+ 
+ </msg>
+<msg timestamp="20260211 18:40:44.471" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20260211 18:40:42.431" endtime="20260211 18:40:44.471"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20260211 18:40:44.471" endtime="20260211 18:40:44.472"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.json()['message']}</arg>
+<arg>Restaurant approved</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20260211 18:40:44.472" endtime="20260211 18:40:44.473"/>
+</kw>
+<doc>Verify admin can approve a registered restaurant</doc>
+<status status="PASS" starttime="20260211 18:40:42.430" endtime="20260211 18:40:44.473"/>
+</test>
+<test id="s1-t3" name="Search For Restaurant By Name" line="24">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${params}</var>
+<arg>name=Spice</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20260211 18:40:44.474" level="INFO">${params} = {'name': 'Spice'}</msg>
+<status status="PASS" starttime="20260211 18:40:44.474" endtime="20260211 18:40:44.474"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>foodie</arg>
+<arg>/restaurants/search</arg>
+<arg>params=${params}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20260211 18:40:46.527" level="INFO">GET Request : url=http://localhost:5000/api/v1/restaurants/search?name=Spice 
+ path_url=/api/v1/restaurants/search?name=Spice 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20260211 18:40:46.527" level="INFO">GET Response : url=http://localhost:5000/api/v1/restaurants/search?name=Spice 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.0.1 Python/3.11.0', 'Date': 'Wed, 11 Feb 2026 13:10:46 GMT', 'Content-Type': 'application/json', 'Content-Length': '188', 'Connection': 'close'} 
+ body=[
+  {
+    "approved": true,
+    "category": "Indian",
+    "contact": "98765",
+    "enabled": true,
+    "id": 4,
+    "images": [],
+    "location": "North",
+    "name": "Spice Garden"
+  }
+]
+ 
+ </msg>
+<msg timestamp="20260211 18:40:46.528" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20260211 18:40:44.475" endtime="20260211 18:40:46.528"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20260211 18:40:46.528" endtime="20260211 18:40:46.528"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${list}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20260211 18:40:46.530" level="INFO">${list} = [{'approved': True, 'category': 'Indian', 'contact': '98765', 'enabled': True, 'id': 4, 'images': [], 'location': 'North', 'name': 'Spice Garden'}]</msg>
+<status status="PASS" starttime="20260211 18:40:46.529" endtime="20260211 18:40:46.530"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${list}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20260211 18:40:46.530" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20260211 18:40:46.530" endtime="20260211 18:40:46.531"/>
+</kw>
+<doc>Verify user can search for restaurants</doc>
+<status status="PASS" starttime="20260211 18:40:44.474" endtime="20260211 18:40:46.531"/>
+</test>
+<test id="s1-t4" name="Delete Restaurant" line="32">
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>foodie</arg>
+<arg>/restaurants/${NEW_RES_ID}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20260211 18:40:48.565" level="INFO">DELETE Request : url=http://localhost:5000/api/v1/restaurants/4 
+ path_url=/api/v1/restaurants/4 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20260211 18:40:48.565" level="INFO">DELETE Response : url=http://localhost:5000/api/v1/restaurants/4 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/3.0.1 Python/3.11.0', 'Date': 'Wed, 11 Feb 2026 13:10:48 GMT', 'Content-Type': 'application/json', 'Content-Length': '38', 'Connection': 'close'} 
+ body={
+  "message": "Restaurant deleted"
+}
+ 
+ </msg>
+<msg timestamp="20260211 18:40:48.565" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20260211 18:40:46.532" endtime="20260211 18:40:48.565"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20260211 18:40:48.566" endtime="20260211 18:40:48.566"/>
+</kw>
+<doc>Cleanup test data</doc>
+<status status="PASS" starttime="20260211 18:40:46.531" endtime="20260211 18:40:48.566"/>
+</test>
+<status status="PASS" starttime="20260211 18:40:40.225" endtime="20260211 18:40:48.568"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Api Tests">Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
